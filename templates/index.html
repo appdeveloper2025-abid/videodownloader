@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#e50914">
+    <title>Abid Video Downloader</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+</head>
+<body>
+    <div class="netflix-bg"></div>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">ABID VIDEO DOWNLOADER</h1>
+            <p class="subtitle">Download videos in high quality from any platform</p>
+        </header>
+
+        <div class="glass-card">
+            <div class="input-section">
+                <input type="url" id="videoUrl" class="url-input" placeholder="Enter video URL here..." required>
+                <button id="getInfoBtn" class="btn">Get Info</button>
+            </div>
+        </div>
+
+        <div id="videoInfo" class="glass-card hidden">
+            <div class="video-info">
+                <img id="thumbnail" class="thumbnail" src="" alt="Video thumbnail">
+                <div class="video-details">
+                    <h3 id="videoTitle"></h3>
+                    <p id="videoDuration"></p>
+                </div>
+            </div>
+
+            <div class="format-section">
+                <label for="formatSelect">Quality:</label>
+                <select id="formatSelect" class="format-select">
+                    <option value="best">Best Quality (Auto)</option>
+                </select>
+                <button id="downloadBtn" class="btn">Download</button>
+            </div>
+        </div>
+
+        <div id="progressSection" class="glass-card hidden">
+            <h4>Download Progress</h4>
+            <div class="progress-bar">
+                <div id="progressFill" class="progress-fill"></div>
+            </div>
+            <div class="progress-info">
+                <span id="progressPercent" class="progress-percent">0%</span>
+                <span id="progressSpeed"></span>
+            </div>
+            <p id="progressFilename" class="progress-filename"></p>
+        </div>
+
+        <div class="glass-card">
+            <h4>Recent Downloads</h4>
+            <button id="refreshDownloads" class="btn btn-secondary">Refresh</button>
+            <div id="downloadsList" class="downloads-list"></div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
